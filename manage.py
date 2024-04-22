@@ -38,9 +38,12 @@ def hashblock(req):
 @app.route("/signLangAI", methods=["POST"])
 def signLangAI():
     if request.method == "POST":
-        video = request.form['video']
-       
-        return "video accepted"
+        print("request arrived")
+        video = request.form.get("video")
+        # video = request.form['video']
+        print("vedio file retrieved")
+        print(video)
+        return jsonify({"message":"video accepted"})
 
 
 def is_date(string, fuzzy=True):
