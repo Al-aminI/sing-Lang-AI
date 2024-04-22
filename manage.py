@@ -39,14 +39,22 @@ def hashblock(req):
 def signLangAI():
     if request.method == "POST":
         print("request arrived")
+        print("\nRequest Items:")
+        for key, value in request.form.items():
+            print(f"- {key}: {value}")
+
         video = request.files.get("video")
         print(video)
         vid_filename = secure_filename(video.filename)
         print(vid_filename)
         print("vedio file retrieved")
         print(video)
-        return jsonify({"message":"video accepted"})
+        return jsonify({"message":"video accepted", "video":"video_id", })
 
+
+@app.route("/status")
+def status():
+    return jsonify({"message":"reached", "status":"complete"})
 
 def is_date(string, fuzzy=True):
     """
