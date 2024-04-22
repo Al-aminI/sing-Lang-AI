@@ -39,9 +39,9 @@ def hashblock(req):
 def signLangAI():
     if request.method == "POST":
         print("request arrived")
-        video = request.form.get("video")
-        vid = video.seek(0)
-        vid_filename = secure_filename(vid.filename)
+        video = request.files.get("video")
+        print(video)
+        vid_filename = secure_filename(video.filename)
         print(vid_filename)
         print("vedio file retrieved")
         print(video)
