@@ -36,9 +36,9 @@ def hashblock(req):
 
 
 @app.route("/signLangAI", methods=["POST"])
-def edit_user():
+def signLangAI():
     if request.method == "POST":
-        country = request.form['country']
+        video = request.form['video']
        
         return "video accepted"
 
