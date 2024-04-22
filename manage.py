@@ -12,7 +12,7 @@ from dateutil.parser import parse
 import random
 import string
 from app import create_app, db
-
+from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 
 
@@ -40,7 +40,9 @@ def signLangAI():
     if request.method == "POST":
         print("request arrived")
         video = request.form.get("video")
-        # video = request.form['video']
+        vid = video.seek(0)
+        vid_filename = secure_filename(vid.filename)
+        print(vid_filename)
         print("vedio file retrieved")
         print(video)
         return jsonify({"message":"video accepted"})
