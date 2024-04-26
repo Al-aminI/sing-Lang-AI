@@ -40,15 +40,16 @@ def signLangAI():
     if request.method == "POST":
         print("request arrived")
         print("\nRequest Items:")
-        for key, value in request.form.items():
+        print(request.json)
+        for key, value in request.json.items():
             print(f"- {key}: {value}")
 
-        video = request.files.get("video")
+        video = request.json.get("video")
         print(video)
-        vid_filename = secure_filename(video.filename)
-        print(vid_filename)
-        print("vedio file retrieved")
-        print(video)
+        # vid_filename = secure_filename(video.filename)
+        # print(vid_filename)
+        # print("vedio file retrieved")
+        # print(video)
         return jsonify({"message":"video accepted", "video":"video_id", })
 
 
